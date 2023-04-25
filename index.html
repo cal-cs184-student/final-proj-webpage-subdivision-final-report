@@ -59,26 +59,21 @@
         different schemes.
       </p>
 
-      <h2>Goals and Deliverables [TO BE UPDATED]</h2>
-      <h3>What we plan to deliver</h3>
+      <h2>Accomplishments</h2>
+      <h3>1. Infrastructure Improvements</h3>
       <p>
-        We plan to deliver images generated as a result of various subdivision algorithms. In order to have a successful
-        project we will implement the different subdivision algorithms by assigning each person with one or two
-        algorithms to split the work. This will ensure people have a similar amount of content to work on, and will get
-        quicker to what we want to achieve. If we run into problems with implementing a specific subdivision algorithm,
-        then we can research another different algorithm to implement instead. If our schedule is followed, then that is
-        the baseline to complete our project satisfactorily.
+        We cloned the code base of Project 2 to get started. But soon we found that the existing code infrastructure
+        cannot satisfy our need for multiple subdivision schemes, because it is designed to only support Loop subdivision in
+        Project 2. It's very inefficient to switch between different schemes.
       </p>
-
-      <h3>What we hope to achieve</h3>
       <p>
-        We hope to successfully implement several subdivisions algorithms such as butterfly, modified butterfly,
-        catmull-clark, doo-sab, on different types of geometries and object meshes. If we finish before schedule, we
-        will also try to implement polar subdivision and sharp edge support. Our results will either be a series of
-        images showcasing the results of the different algorithms, or interactive 3D mesh models. Hopefully, there will
-        be distinct differences that these algorithms have on objects such as basic geometric shapes, complex
-        character/item models, sharp edges, and smooth curves. Furthermore, we will measure each algorithm’s speed and
-        demonstrate the effectiveness of certain optimizations and modifications.
+        To overcome this limitation, we added a new flag <b>-a</b> to arguments to determine which subdivision scheme to
+        use. For example, one can use command <b>./meshedit -a doo-sabin ../dae/teapot.dae</b> to run Doo-Sabin subdivision
+        on scene file teapot.dae.
+      </p>
+      <p>
+        This dramatically improve our efficiency when we work on different subdivision schemes in parallel. It also helps
+        us have separation of concerns and make our code modular and more readable.
       </p>
 
       <h2>Schedule [TO BE UPDATED]</h2>
@@ -109,51 +104,6 @@
           </ul>
         </li>
       </ul>
-
-      <h2>Resources [TO BE UPDATED]</h2>
-      <h3>Knowledge References</h3>
-      <ul>
-        <li>Dynamic Modeling of Butterfly Subdivision Surfaces:
-          <a href="https://www3.cs.stonybrook.edu/~qin/research/mandal-tvcg2000.pdf">https://www3.cs.stonybrook.edu/~qin/research/mandal-tvcg2000.pdf</a>
-        </li>
-        <li>
-          Different subdivision schemes:
-          <a href="https://en.wikipedia.org/wiki/Subdivision_surface">https://en.wikipedia.org/wiki/Subdivision_surface</a>
-        </li>
-        <li>
-          Butterfly and modified butterfly, with slides:
-          <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15462-s14/www/lec_slides/Subdivision.pdf">https://www.cs.cmu.edu/afs/cs/academic/class/15462-s14/www/lec_slides/Subdivision.pdf</a>
-        </li>
-        <li>
-          Catmull–Clark subdivision surface:
-          <a href="https://en.wikipedia.org/wiki/Catmull%E2%80%93Clark_subdivision_surface">https://en.wikipedia.org/wiki/Catmull%E2%80%93Clark_subdivision_surface</a>
-        </li>
-        <li>
-          Bicubic Polar Subdivision:
-          <a href="https://www.cise.ufl.edu/research/SurfLab/papers/06bi3pol.pdf">https://www.cise.ufl.edu/research/SurfLab/papers/06bi3pol.pdf</a>
-        </li>
-      </ul>
-
-      <h3>Hardware Resources</h3>
-      <p>
-        Our project should be able to be compiled and executed on personal computers, by following the existing
-        instructions of the course.
-      </p>
-      <p>
-        However, we will be using Berkeley instructional machines as our baseline. The hardware specs for hive machines
-        are as follows:
-      </p>
-      <ul>
-        <li>Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz</li>
-        <li>32 GB Memory</li>
-      </ul>
-
-      <h3>Software Resources</h3>
-      <p>
-        We will be using a working copy of project 2 from one of our team members as our starter code base. So we will
-        be primarily using OpenGL APIs in our project.
-      </p>
-
       <br>
     </div>
 	</body>
