@@ -6,14 +6,14 @@
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
-    <title>Final Project Milestone Status Report</title>
+    <title>Final Status Report</title>
 	</head>
 	<body>
     <div class="ui container">
       <div class="ui center aligned container">
         <br>
         <h1>Alternate Subdivision Schemes</h1>
-        <h3>Milestone Status Report</h3>
+        <h3>Final Status Report</h3>
       </div>
 
       <h2>Team Members (Team 52)</h2>
@@ -26,10 +26,10 @@
 
       <h2>Summary</h2>
       <p>
-        In this project, we will be exploring additional subdivision schemes: the Butterfly scheme, the modified
-        Butterfly scheme, Catmull-Clark scheme, Doo-Sabin scheme, and the polar subdivision scheme, etc. We will compare
-        the pros and cons for each of them, and discuss the tradeoffs when choosing a subdivision scheme under different
-        scenarios.
+        In this project, we have explored and implemented additional subdivision schemes: the Butterfly scheme, the
+        modified Butterfly scheme, Catmull-Clark scheme, Doo-Sabin scheme, and the polar subdivision scheme, etc. We
+        will compare the pros and cons for each of them, and discuss the tradeoffs when choosing a subdivision scheme
+        under different scenarios.
       </p>
 
       <h2>Presentation Slides</h2>
@@ -39,33 +39,15 @@
           <b>Alternate Subdivision Schemes Presentation</b>.
         </a>
       </p>
-      <h2>Milestone Video</h2>
-      <div style="position:relative;width:fit-content;height:fit-content;">
-        <a style="position:absolute;top:20px;right:1rem;opacity:0.8;" href="https://clipchamp.com/watch/s9mPxmny3IA?utm_source=embed&utm_medium=embed&utm_campaign=watch">
-          <img style="height:22px;" src="https://clipchamp.com/e.svg" alt="Made with Clipchamp" />
-        </a>
-        <iframe allow="autoplay;" allowfullscreen style="border:none" src="https://clipchamp.com/watch/s9mPxmny3IA/embed" width="640" height="360"></iframe>
-      </div>
+<!--      <h2>Milestone Video</h2>-->
+<!--      <div style="position:relative;width:fit-content;height:fit-content;">-->
+<!--        <a style="position:absolute;top:20px;right:1rem;opacity:0.8;" href="https://clipchamp.com/watch/s9mPxmny3IA?utm_source=embed&utm_medium=embed&utm_campaign=watch">-->
+<!--          <img style="height:22px;" src="https://clipchamp.com/e.svg" alt="Made with Clipchamp" />-->
+<!--        </a>-->
+<!--        <iframe allow="autoplay;" allowfullscreen style="border:none" src="https://clipchamp.com/watch/s9mPxmny3IA/embed" width="640" height="360"></iframe>-->
+<!--      </div>-->
 
-      <h2>Problem Description</h2>
-      <p>
-        Subdividing meshes is useful for rendering a more smooth, detailed surface. Subdivision methods allow us to take
-        a coarse, simple mesh of an object and extrapolate from it to create more smooth edges. In Project 2, we
-        implemented loop subdivision for triangle mesh surfaces. For our final project, our group will implement
-        alternative methods of subdivision. Loop subdivision only works for triangle meshes, so meshes made from
-        quadrilaterals require a different subdivision scheme, such as Catmull-Clark. Even for triangle meshes,
-        different subdivision schemes have tradeoffs. Loop subdivision can yield smoother final surfaces, while
-        Interpolating methods like the butterfly and modified butterfly method maintain key aspects of the original mesh.
-      </p>
-      <p>
-        The challenges of implementing different subdivision schemes lie in the details inherent to meshes: keeping
-        track of vertices and edges within the mesh, creating new mesh elements only when necessary, and updating the
-        mesh correctly with each subdivision. Our team plans to implement different options for subdivision (e.g.
-        Butterfly, modified butterfly, Catmull-Clark, Doo-Sabin) to provide functionality and benefits of these
-        different schemes.
-      </p>
-
-      <h2>Accomplishments</h2>
+      <h2>Technical Approach</h2>
       <h3>1. Infrastructure Improvements</h3>
       <p>
         We cloned the code base of Project 2 to get started. But soon we found that the existing code infrastructure
@@ -116,20 +98,10 @@
           </div>
         </div>
       </div>
-      <h2>Progress and Updated Work Plan</h2>
-      <p>
-        We've on track to reach our original goal of implementing multiple subdivision schemes. We've completed 2 (with
-        Doo-Sabin being buggy), and have an extensible framework to add more subdivision schemes. With our existing implemented
-        subdivision schemes, we've already noticed some limitations on them. For example, we found out that the Doo-Sabin
-        scheme isn't really great on handling triangle meshes as it may produce non-coplanar faces after a subdivision
-        run. With more subdivision schemes implemented in the following week, we should be able to identify more such
-        differences.
-      </p>
-      <p>
-        In the last week, we plan to fix bugs in our current implementations, and complete two more subdivision schemes
-        (modified Butterfly and Catmull-Clark). And we will also look into non-triangle meshes to compare the tradeoffs
-        between these subdivision schemes under different scenarios.
-      </p>
+
+      <h2>Results</h2>
+      <h2>References</h2>
+      <h2>Contributions</h2>
       <br>
     </div>
 	</body>
