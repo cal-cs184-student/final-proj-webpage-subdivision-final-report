@@ -49,6 +49,8 @@
 
       <h2>Technical Approach</h2>
       <h3>1. Infrastructure Improvements</h3>
+
+      <h4>1.1 Command Line Flag "-a" to Switch between Subdivision Schemes</h4>
       <p>
         We cloned the code base of Project 2 to get started. But soon we found that the existing code infrastructure
         cannot satisfy our need for multiple subdivision schemes, because it is designed to only support Loop subdivision in
@@ -63,6 +65,8 @@
         This dramatically improved our efficiency when we work on different subdivision schemes in parallel. It also helps
         us have separation of concerns and make our code modular and more readable.
       </p>
+
+      <h4>1.2 Duration Measurement for Subdivision Executions</h4>
       <p>
         We also added the logic to measure the duration of subdivision/upsampling duration, so that we can easily compare
         the performance difference between different schemes.
