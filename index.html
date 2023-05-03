@@ -83,18 +83,47 @@
 
       <h3>3. Doo-Sabin Subdivision Scheme</h3>
       <p>
-        We've started implementing Doo-Sabin subdivision scheme. But it still has bugs as there are new faces to be
-        added across newly added edges.
+        Our Doo-Sabin implementation is greatly inspired by article
+        <a target="_blank" href="https://www.cs.unc.edu/~dm/UNC/COMP258/LECTURES/Doo-Sabin.pdf">
+          https://www.cs.unc.edu/~dm/UNC/COMP258/LECTURES/Doo-Sabin.pdf
+        </a>. To implement this scheme, we take 6 steps:
       </p>
+      <ul>
+        <li>
+          Step 1: Calculate the average of all vertices in each face and put its position in the newly added
+          <b>averagePosition</b> field in Face class.
+        </li>
+        <li>
+          Step 2: Calculate the midpoint of each edge, and put its position in <b>newPosition</b> field in Edge class.
+        </li>
+        <li>
+          Step 3 (Case 1 in below picture): Calculate the positions of new vertices using the positions calculated in
+          step 1 and 2. For each
+          old vertex, the position of the new vertex is the average of these 4 points: the old vertex, the midpoint of
+          the two edges (generated in step 2), and the average face point (generated in step 1). And connect the new
+          vertices in each face.
+        </li>
+        <li>
+          Step 4 (Case 2 in below picture): Add the connections across old edges. For each old edge, we connect the 4
+          new vertices (2 on each
+          face), and form a face.
+        </li>
+        <li>
+          Step 5 (Case 3 in below picture): Re-connect edges surrounding each old vertex.
+        </li>
+        <li>
+          Step 6: Delete all old components (vertices, edges, faces, boundaries) in the mesh.
+        </li>
+      </ul>
       <div class="ui two column grid">
-        <div class="row">
-          <div class="column ui segment">
-            <img src="./assets/final_milestone_teapot_body.png">
-            <h5 class="ui center aligned container">Teapot with Loop subdivision</h5>
+        <div class="row centered">
+          <div class="six wide column ui segment">
+            <img src="./assets/doo_original.png">
+            <h5 class="ui center aligned container">Original Mesh</h5>
           </div>
-          <div class="column ui segment">
-            <img src="./assets/final_milestone_teapot_body_doo-sabin.png">
-            <h5 class="ui center aligned container">Teapot with Doo-Sabin subdivision (buggy)</h5>
+          <div class="ten wide column ui segment">
+            <img src="./assets/doo_subdivision.png">
+            <h5 class="ui center aligned container">Upsampled Mesh with Doo-Sabin Scheme in Different Cases</h5>
           </div>
         </div>
       </div>
