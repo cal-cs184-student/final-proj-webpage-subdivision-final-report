@@ -74,7 +74,7 @@
 
       <h3>2. Butterfly Subdivision Scheme</h3>
       <p>
-        The function MeshResampler::upsampleButterfly( HalfedgeMesh& mesh ) implements the Butterfly method for
+        The function <b>MeshResampler::upsampleButterfly( HalfedgeMesh& mesh )</b> implements the Butterfly method for
         subdivision. First, the function iterates through each edge in the mesh and computes the position of the vertex
         that will be added in the middle of that edge during subdivision. The position of this vertex is determined by
         nearby vertices, inspired by slide 65 of
@@ -82,7 +82,7 @@
           http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf
         </a>
         , where we chose omega to be ⅛. Similar to Loop subdivision, this new position is stored in
-        edge->newPosition. After all these new positions have been computed, upsampleButterfly(...) iterates through the
+        edge->newPosition. After all these new positions have been computed, <b>upsampleButterfly(...)</b> iterates through the
         edges again and adds the new vertices with the new positions to the mesh.
       </p>
       <p>
@@ -93,7 +93,7 @@
         function returns, it sets all the vertices’ isNew attributes to false.
       </p>
       <p>
-        One challenge for the upsampleButterfly(...) was figuring out the order of computations and operations on the
+        One challenge for the <b>upsampleButterfly(...)</b> was figuring out the order of computations and operations on the
         mesh. The desired subdivision product is simple: split each triangle into four triangles with new vertices
         determined by the positions of surrounding triangles (
         <a href="https://www3.cs.stonybrook.edu/~qin/research/mandal-tvcg2000.pdf" target="_blank">
