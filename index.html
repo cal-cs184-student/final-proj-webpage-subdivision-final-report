@@ -74,20 +74,34 @@
 
       <h3>2. Butterfly Subdivision Scheme</h3>
       <p>
-        We've successfully implemented Butterfly subdivision scheme.
+        The function MeshResampler::upsampleButterfly( HalfedgeMesh& mesh ) implements the Butterfly method for
+        subdivision. First, the function iterates through each edge in the mesh and computes the position of the vertex
+        that will be added in the middle of that edge during subdivision. The position of this vertex is determined by
+        nearby vertices, inspired by slide 65 of
+        <a href="http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf" target="_blank">
+          http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/10_Subdivision.pdf
+        </a>
+        , where we chose omega to be ⅛. Similar to Loop subdivision, this new position is stored in
+        edge->newPosition. After all these new positions have been computed, upsampleButterfly(...) iterates through the
+        edges again and adds the new vertices with the new positions to the mesh.
       </p>
-      <div class="ui two column grid">
-        <div class="row">
-          <div class="column ui segment">
-            <img src="./assets/final_milestone_loop.png">
-            <h5 class="ui center aligned container">Bottom of teapot with Loop subdivision</h5>
-          </div>
-          <div class="column ui segment">
-            <img src="./assets/final_milestone_butterfly.png">
-            <h5 class="ui center aligned container">Bottom of teapot with Butterfly subdivision</h5>
-          </div>
-        </div>
-      </div>
+      <p>
+        After the new vertices are created, the function needs to create edges between the new vertices, along with the
+        corresponding new faces and halfedges. This is the most complicated part of the function, because when iterating
+        through the new vertices, there are a few cases to account for: adjacent new vertices may have already been hit
+        by the for loop, so some of the new edges, faces, and halfedges may have already been created. Before the
+        function returns, it sets all the vertices’ isNew attributes to false.
+      </p>
+      <p>
+        One challenge for the upsampleButterfly(...) was figuring out the order of computations and operations on the
+        mesh. The desired subdivision product is simple: split each triangle into four triangles with new vertices
+        determined by the positions of surrounding triangles (
+        <a href="https://www3.cs.stonybrook.edu/~qin/research/mandal-tvcg2000.pdf" target="_blank">
+          https://www3.cs.stonybrook.edu/~qin/research/mandal-tvcg2000.pdf
+        </a>
+        ). But creating and assigning the mesh elements correctly was more tedious and exacting. The major bugs we had
+        were due to accessing a mesh element before it had been correctly assigned.
+      </p>
 
       <h3>3. Doo-Sabin Subdivision Scheme</h3>
       <p>
