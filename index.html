@@ -103,7 +103,44 @@
         were due to accessing a mesh element before it had been correctly assigned.
       </p>
 
-      <h3>3. Doo-Sabin Subdivision Scheme</h3>
+      <h3>3. Catmull-Clark Subdivision Scheme</h3>
+      <p>
+        We used the Wikipedia article on Catmull-Clark (
+        <a href="https://en.wikipedia.org/wiki/Catmull%E2%80%93Clark_subdivision_surface" target="_blank">
+          https://en.wikipedia.org/wiki/Catmull%E2%80%93Clark_subdivision_surface
+        </a>
+        ) linked in Project 2 of CS184 to implement the algorithm using the following steps:
+      </p>
+      <ul>
+        <li>
+          Compute the centroid of each face (face point).
+        </li>
+        <li>
+          Compute the edge points for each edge as the average between an edge’s midpoint and neighboring faces’ face
+          points.
+        </li>
+        <li>
+          Compute new points for each vertex (vertex points) by taking the average of the sum of neighboring face
+          points, two times the neighboring edge midpoints, and the original vertex position. scaled to the degree of
+          the vertex minus three.
+        </li>
+        <li>
+          Creating a vertex at the edge point to split the edge, and then connecting the new vertex to the edge’s old
+          vertices.
+        </li>
+        <li>
+          Moving the old vertices to their respective vertex points.
+        </li>
+        <li>
+          Make new edges between each face point and the edge points which are now vertices.
+        </li>
+      </ul>
+      <p>
+        One challenge we had for implementing Catmull-Clark was adjusting for triangle meshes. Typically, Catmull-Clark
+        subdivision is performed on quadrilateral meshes. However, we had to consider alternative ways to design and
+        order the steps of the algorithm.
+      </p>
+      <h3>4. Doo-Sabin Subdivision Scheme</h3>
       <p>
         Our Doo-Sabin implementation is greatly inspired by article
         <a target="_blank" href="https://www.cs.unc.edu/~dm/UNC/COMP258/LECTURES/Doo-Sabin.pdf">
