@@ -149,6 +149,13 @@
           </div>
         </div>
       </div>
+      <p>
+        The challenge of implementing Doo-Sabin scheme is how to connect the half edges to properly form the new faces.
+        This is especially true for Case 3 where the half edges have been created in previous steps, and we need to
+        somehow figure out the sequence of all such half edges and connect them in a particular order. What we did is to
+        maintain a vertex to half edge map, and for each old vertex, iteratively find the next half edge based on the
+        endpoint of the current half edge.
+      </p>
 
       <h2>Results</h2>
       <h2>References</h2>
