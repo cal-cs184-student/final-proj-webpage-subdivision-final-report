@@ -103,7 +103,52 @@
         were due to accessing a mesh element before it had been correctly assigned.
       </p>
 
-      <h3>3. Catmull-Clark Subdivision Scheme</h3>
+      <h3>3. Modified Butterfly Subdivision Scheme</h3>
+      <p>
+        The butterfly subdivision scheme generally produces a smooth surface except at the extraordinary points which
+        are vertices with valence != 6.
+      </p>
+      <p>
+        To resolve this issue, we implemented a modified butterfly scheme to obtain better smoothness properties at
+        these extraordinary points. To start, all the edges have been categorized into three classes:
+      </p>
+      <ul>
+        <li>
+          Edges connecting two vertices of valence 6, where a 10 point stencil is used to obtain the new vertex
+          positions, which is shown in the left image below.
+        </li>
+        <li>
+          Edges connecting a vertex of valence 6 and a vertex of valence n != 6, where a different stencil is used,
+          shown in the lower right image below, where the weights are defined by
+        </li>
+        <div class="ui column grid">
+          <div class="row centered">
+            <div class="five wide column ui">
+              <img src="./assets/modified_1.png">
+            </div>
+          </div>
+        </div>
+        <li>
+          Edges connecting two vertices of valence n != 6. The last case cannot occur except in the initial mesh as all
+          newly introduced vertices through this scheme are of valence 6.
+        </li>
+      </ul>
+
+      <div class="ui column grid">
+        <div class="row centered">
+          <div class="eight wide column ui segment">
+            <img src="./assets/modified_2.png">
+          </div>
+        </div>
+      </div>
+
+      <p>
+        One challenge for implementing Modified Butterfly Subdivision was the complexity of the scheme in general, and
+        had the same issues as Butterfly subdivision where creating and assigning mesh elements was very tedious and
+        difficult to debug.
+      </p>
+
+      <h3>4. Catmull-Clark Subdivision Scheme</h3>
       <p>
         We used the Wikipedia article on Catmull-Clark (
         <a href="https://en.wikipedia.org/wiki/Catmull%E2%80%93Clark_subdivision_surface" target="_blank">
@@ -140,7 +185,7 @@
         subdivision is performed on quadrilateral meshes. However, we had to consider alternative ways to design and
         order the steps of the algorithm.
       </p>
-      <h3>4. Doo-Sabin Subdivision Scheme</h3>
+      <h3>5. Doo-Sabin Subdivision Scheme</h3>
       <p>
         Our Doo-Sabin implementation is greatly inspired by article
         <a target="_blank" href="https://www.cs.unc.edu/~dm/UNC/COMP258/LECTURES/Doo-Sabin.pdf">
